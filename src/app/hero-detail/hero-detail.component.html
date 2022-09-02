@@ -1,0 +1,21 @@
+<div *ngIf="this.hero is not null">
+    <h2>
+        {{this.hero.name | uppercase}}
+        Details
+    </h2>
+    <small>
+        id:
+        {{this.hero.id}}
+    </small>
+
+    <div>
+        <label for="hero-name">
+            Hero name:
+        </label>
+        <input [(ngModel)]="this.hero.name"
+               type="text"
+               id="hero-name"
+               placeholder="Name">
+
+    </div>
+</div>
