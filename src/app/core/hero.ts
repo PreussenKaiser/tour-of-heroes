@@ -1,5 +1,5 @@
 /**
- * Implments hero properties.
+ * Implements hero properties.
  */
 export interface Hero {
 

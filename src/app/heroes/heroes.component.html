@@ -2,21 +2,31 @@
     My Heroes
 </h2>
 
+<div>
+    <label for="new-hero">
+        Hero name:
+    </label>
+    <input id="new-hero" #heroName />
+
+    <button type="button"
+            class="add-button"
+            (click)="this.add(heroName.value); heroName.value=''">
+            
+        Add hero
+    </button>
+</div>
+
 <ul class="heroes">
     <li *ngFor="let hero of this.heroes">
-        <button (click)="this.onSelect(hero)"
-                [class.selected]="hero === this.selectedHero"
-                type="button">
+        <a routerLink="/detail/{{hero.id}}">
+            <span class="badge">{{hero.id}}</span> {{hero.name}}
+            <button type="button"
+                    class="delete"
+                    title="delete hero"
+                    (click)="this.delete(hero)">
 
-            <span class="badge">
-                {{this.hero.id}}
-            </span>
-            <span class="name">
-                {{this.hero.name}}
-            </span>
-        </button>
+                X
+            </button>
+        </a>
     </li>
 </ul>
-
-<app-hero-detail [hero]="this.selectedHero">
-</app-hero-detail>
